@@ -1,0 +1,13 @@
+#!/bin/bash
+# Con openwrt debemos cambiar lo anterior por #!/bin/sh
+# Configuración del broker y topic a escuchar.
+# Cambiar por valores propios las siguientes variables:
+archivo="/home/pi/salida.dat"
+#------------------------------------
+#Ponemos el cliente de mosquitto escuchando led cuarto
+mosquitto_sub -t "casa/config" -h "201.210.53.94" -p 1883 | while read value; do
+# Guardamos valores uno detrás de otro:
+
+#Separamos el mensaje
+IN=$value
+arrIN=(${IN//;/ })
