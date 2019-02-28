@@ -5,7 +5,7 @@
 archivo="/home/pi/salida.dat"
 #------------------------------------
 #Ponemos el cliente de mosquitto escuchando led cuarto
-mosquitto_sub -t "casa/leds" -h "201.210.53.94" -p 1883 | while read value; do
+mosquitto_sub -t "casa/leds" -h "wape.ddns.net" | while read value; do
 # Guardamos valores uno detrás de otro:
 
 echo "$value" >> $archivo

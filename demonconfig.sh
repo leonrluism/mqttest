@@ -15,24 +15,23 @@ password=123456
 #myvar=$(mysql DOMOTICA -u $user -p$password -se "select dht from config where espacio='$b'")
 #------------------------------------
 #Ponemos el cliente de mosquitto escuchando led cuarto
-#mosquitto_sub -t "casa/config" -h "201.210.53.94" -p 1883 | while read value; do
+mosquitto_sub -t "casa/config" -h "wape.ddns.net" | while read value; do
 # Guardamos valores uno detrás de otro:
+echo "$value" >> $archivo
 
 #Separamos el mensaje
-IN="sensor cocina led1 on"
-arrIN=(${IN//' '/ })
+#IN="sensor cocina led1 on"
+arrIN=(${value//' '/ })
 cont=0
 
 #Separar mensaje
 for i in "${arrIN[@]}"
 do
 	if (($cont==0)); then
-		tipo=$i
-	elif (($cont==1)); then
 		espacio=$i
-	elif (($cont==2)); then
+	elif (($cont==1)); then
 		nombre=$i
-	elif (($cont==3)); then
+	elif (($cont==2)); then
 		accion=$i
 	fi
 
@@ -73,3 +72,5 @@ else
 	fi
 
 fi
+
+done

@@ -13,7 +13,7 @@ client =mqtt.Client("ldr")
 #############################
 #--.CAMBIAR IP POR VALOR CORRESPONDIENTE--
 
-client.connect("192.168.0.107")
+client.connect("wape.ddns.net")
 
 ################################
 
