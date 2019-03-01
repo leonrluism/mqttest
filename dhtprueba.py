@@ -17,4 +17,12 @@ try:
                 ######################################################################
                 #------------ CAMBIAR ID_MONGO POR VALOR CORRESPONDIENTE ------------#
 
-                client.publish("sensor","LkTHoMzaFt7DgTQNd "+str(tempera
+                client.publish("sensor","LkTHoMzaFt7DgTQNd "+str(temperatura))
+                client.publish("sensor","pGQDNmwswkQXfpp63 "+str(humedad))
+               #########################################################################
+       
+       #Duerme 10 segundos
+       time.sleep(2)
+       
+       Except Exception,e:
+        print str(e)
